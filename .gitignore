@@ -1,0 +1,112 @@
+# ==================== Python ====================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# ==================== 包管理 ====================
+pip-log.txt
+pip-delete-this-directory.txt
+
+# ==================== 测试和覆盖率 ====================
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+test_outputs/
+
+# ==================== 环境 ====================
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+pythonenv*
+
+# ==================== IDE ====================
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+*~
+
+# ==================== 操作系统 ====================
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+
+# ==================== 深度学习项目特定 ====================
+# 大文件不上传GitHub（用Git LFS或外部存储）
+data/raw/            # 原始数据集（600张图片不大，但习惯上好区分）
+*.pth
+*.pt
+*.bin
+*.h5
+*.tflite
+*.onnx
+
+# 但保留文件夹结构（使用.gitkeep）
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# 训练输出（每次训练都不同，不应该提交）
+outputs/checkpoints/*.pth
+outputs/logs/*.log
+outputs/results/*.png
+!outputs/checkpoints/.gitkeep
+!outputs/logs/.gitkeep
+!outputs/results/.gitkeep
+
+# Jupyter笔记本检查点
+.ipynb_checkpoints/
+
+# ==================== 其他 ====================
+*.log
+*.sql
+*.sqlite
+*.sublime-project
+*.sublime-workspace
