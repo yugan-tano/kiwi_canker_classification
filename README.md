@@ -1,0 +1,2 @@
+# kiwi_canker_classification
+猕猴桃溃疡病图像分类项目
