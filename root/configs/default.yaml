@@ -1,0 +1,60 @@
+# 项目配置
+project:
+  name: "kiwi_canker_classification"
+  description: "基于SE-ResNet的猕猴桃溃疡病图像分类"
+
+# 数据配置
+data:
+  root: "./data/raw"
+  processed_dir: "./data/processed"
+  train_ratio: 0.7
+  val_ratio: 0.15
+  test_ratio: 0.15
+  num_classes: 2
+  class_names: ["disease", "healthy"]
+  num_samples_per_class: 100  # 每类图片数量
+  #use_augmentation: true      # 是否使用数据增强
+
+  # 图像预处理
+  transform:
+    resize: [224, 224]
+    mean: [0.485, 0.456, 0.406]
+    std: [0.229, 0.224, 0.225]
+
+# 模型配置
+model:
+  name: "se_resnet34"
+  backbone: "resnet34"
+  pretrained: true
+  num_classes: 2
+  se_reduction: 16
+
+# 训练配置
+training:
+  device: "cuda"  # 或 "cpu"
+  batch_size: 32
+  num_epochs: 50
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  momentum: 0.9
+
+  # 学习率调度
+  scheduler:
+    name: "cosine"
+    warmup_epochs: 5
+    min_lr: 0.00001
+
+  # 早停
+  early_stopping:
+    patience: 10
+    min_delta: 0.001
+
+# 输出配置
+output:
+  checkpoint_dir: "./outputs/checkpoints"
+  log_dir: "./outputs/logs"
+  result_dir: "./outputs/results"
+
+  # 保存配置
+  save_frequency: 5
+  save_best_only: true
